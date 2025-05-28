@@ -49,7 +49,7 @@ const Footer = () => {
 
         <div className="text-center mt-8 pt-8 border-t border-white/20">
           <p className="text-blue-200">
-            © 2025 TripReviews by Cod8 , All rights reserved.
+            © 2025 TripReviews by Cod8. All rights reserved.
           </p>
         </div>
       </div>

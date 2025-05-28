@@ -1,15 +1,13 @@
 import React from 'react';
 import HowItWorks from './components/sections/HowItWorks';
-import Footer from './components/sections/Footer';
-import TopDestinations from './components/sections/TopDestinations';
+import HeroSection from './components/sections/HeroSection';
 
 function App() {
   return (
     <div>
+       <HeroSection />
         <HowItWorks />
-        <TopDestinations/>       
-        <Footer />   
-
+        
     </div>
   );
 }
