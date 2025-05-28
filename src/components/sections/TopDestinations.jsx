@@ -3,7 +3,7 @@ import { Star } from 'lucide-react';
 import { destinations } from '../data/destinations';
 
 const TopDestinations = () => {
-  const [currentDestination, setCurrentDestination] = useState(0);
+  const [setCurrentDestination] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
