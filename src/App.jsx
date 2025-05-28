@@ -7,8 +7,10 @@ function App() {
   return (
     <div>
         <HowItWorks />
+        <TopDestinations/>       
+        
         <Footer />   
-        <TopDestinations/>
+
     </div>
   );
 }
