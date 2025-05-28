@@ -8,7 +8,6 @@ function App() {
     <div>
         <HowItWorks />
         <TopDestinations/>       
-        
         <Footer />   
 
     </div>
