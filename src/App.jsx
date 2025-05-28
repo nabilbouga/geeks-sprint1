@@ -6,7 +6,6 @@ function App() {
     <div className="min-h-screen bg-white text-gray-800 font-sans">
       <main>
         <HowItWorks />
-        
       </main>
     </div>
   );
