@@ -10,7 +10,14 @@ import Footer from './components/sections/Footer';
 import MoroccoTravelBlog from './components/sections/UserReviews';
 import AllBlogs from './components/sections/AllBlogs';
 import BlogsPage from './pages/BlogsPage';
+<<<<<<< HEAD
 import AboutPage from './pages/AboutPage';
+=======
+import ContactPage from './pages/ContactPage';
+
+
+
+>>>>>>> 3aa29db8358e6fa085614da7b453c9bbf08dc458
 
 function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -30,9 +37,34 @@ function App() {
 
       <Routes>
         <Route path="/blogs" element={<BlogsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/" element={
           <>
+<<<<<<< HEAD
 
+=======
+            <nav className="bg-blue-600 text-white py-4 px-6">
+              <div className="container mx-auto flex justify-between items-center">
+                <div className="text-xl font-bold">Travel Explorer</div>
+                <div className="space-x-6">
+                  <Link to="/" className="hover:text-blue-200 transition-colors">Home</Link>
+                  <Link to="/blogs" className="hover:text-blue-200 transition-colors">Blogs</Link>
+                </div>
+              </div>
+            </nav>
+<<<<<<< HEAD
+           <Navbar onLoginClick={handleLoginClick} />
+      <main className="pt-0">
+        <HeroSection />
+             <TopDestinations />
+             <HowItWorks />
+             <MoroccoTravelBlog />
+             <Benefits />
+             <Footer />
+        </main>
+          </div>
+=======
+>>>>>>> 3aa29db8358e6fa085614da7b453c9bbf08dc458
             <Navbar onLoginClick={handleLoginClick} />
             <main className="pt-16">
               <HeroSection />
@@ -43,6 +75,7 @@ function App() {
               <Footer />
             </main>
           </>
+>>>>>>> c226bf421a50d66fbbd4ea2086c3e5e6850380b9
         } />
       </Routes>
 
