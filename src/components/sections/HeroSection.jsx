@@ -10,13 +10,12 @@ const HeroSection = () => {
         <div className="absolute bottom-40 right-32 w-24 h-24 bg-purple-300/20 rounded-full blur-2xl animate-pulse delay-700"></div>
         <div className="absolute top-1/2 left-1/2 w-40 h-40 bg-blue-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
-      
       <div className="relative z-10 container mx-auto px-6 pt-32 pb-20 text-center text-white">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
-            Discover Your Next
-            <span className="block bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-              Adventure
+          <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight ">
+            TRIP REVIEW
+            <span className="block bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+              See the world through others' eyes
             </span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-blue-100 leading-relaxed max-w-2xl mx-auto">
@@ -24,7 +23,7 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <button className="bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 transform transition-all duration-300 shadow-2xl hover:shadow-yellow-500/25">
-              Start Reviewing
+              Start Reviewing 
               <ChevronRight className="inline ml-2 w-5 h-5" />
             </button>
             <button className="border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
