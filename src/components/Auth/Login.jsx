@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Eye, EyeOff, X } from 'lucide-react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 // Create axios instance with base URL
 const api = axios.create({
@@ -13,6 +14,7 @@ const api = axios.create({
 
 const Login = ({ onClose }) => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -44,15 +46,14 @@ const Login = ({ onClose }) => {
           password: formData.password,
         });
         
-        // Store the token in localStorage
-        localStorage.setItem('token', response.data.token);
-        
+        // Use the auth context to login
+        login(response.data);
         onClose(); // Close the modal
         navigate('/blogs'); // Navigate to blogs page
       } else {
         // Signup request
         await api.post('/auth/register', {
-          name: formData.name,
+          username: formData.name,
           email: formData.email,
           password: formData.password,
         });

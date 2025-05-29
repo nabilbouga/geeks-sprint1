@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Login from './components/Auth/Login';
 import HowItWorks from './components/sections/HowItWorks';
@@ -12,9 +12,26 @@ import AllBlogs from './components/sections/AllBlogs';
 import BlogsPage from './pages/BlogsPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import { AuthProvider, useAuth } from './context/AuthContext';
 
-function App() {
+// Protected Route component
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated, loading } = useAuth();
+  
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  
+  if (!isAuthenticated) {
+    return <Navigate to="/" />;
+  }
+
+  return children;
+};
+
+function AppContent() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const { isAuthenticated, logout } = useAuth();
 
   const handleLoginClick = () => {
     setIsLoginOpen(true);
@@ -26,14 +43,21 @@ function App() {
 
   return (
     <div className="App">
-      {/* Navbar is fixed and rendered here, outside of Routes, to appear on all pages */}
-      <Navbar onLoginClick={handleLoginClick} />
-
-      {/* Navbar is fixed and rendered here, outside of Routes, to appear on all pages */}
-      <Navbar onLoginClick={handleLoginClick} />
+      <Navbar 
+        onLoginClick={handleLoginClick} 
+        isAuthenticated={isAuthenticated}
+        onLogout={logout}
+      />
 
       <Routes>
-        <Route path="/blogs" element={<BlogsPage />} />
+        <Route 
+          path="/blogs" 
+          element={
+            <ProtectedRoute>
+              <BlogsPage />
+            </ProtectedRoute>
+          } 
+        />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/" element={
@@ -48,7 +72,7 @@ function App() {
         } />
       </Routes>
 
-      {/* Login Modal rendered at the root level to ensure proper stacking */}
+      {/* Login Modal */}
       {isLoginOpen && (
         <div className="fixed inset-0 z-[999] overflow-y-auto">
           <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
@@ -62,6 +86,14 @@ function App() {
         </div>
       )}
     </div>
+  );
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   );
 }
 
