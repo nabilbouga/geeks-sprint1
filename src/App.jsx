@@ -29,6 +29,9 @@ function App() {
       {/* Navbar is fixed and rendered here, outside of Routes, to appear on all pages */}
       <Navbar onLoginClick={handleLoginClick} />
 
+      {/* Navbar is fixed and rendered here, outside of Routes, to appear on all pages */}
+      <Navbar onLoginClick={handleLoginClick} />
+
       <Routes>
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/about" element={<AboutPage />} />

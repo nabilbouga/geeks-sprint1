@@ -1,10 +1,10 @@
 const blogs = [
   {
     id: 1,
-    title: "Exploring the Hidden Beaches of Thailand",
+    title: "Exploring the Hidden Beaches of Morcco",
     image: "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-    description: "Discover the secluded paradise beaches that most tourists never see. Learn about local gems and insider tips for your next Thai adventure.",
-    content: "Thailand is home to some of the most beautiful beaches in the world, but many travelers only visit the popular spots. In this blog post, we'll explore several hidden beaches that offer pristine sands, crystal-clear waters, and fewer crowds...",
+    description: "Discover the secluded paradise beaches that most tourists never see. Learn about local gems and insider tips for your next adventure.",
+    content: "Morocco is home to some of the most beautiful beaches in the world, but many travelers only visit the popular spots. In this blog post, we'll explore several hidden beaches that offer pristine sands, crystal-clear waters, and fewer crowds...",
     author: "Sarah Johnson",
     date: "May 25, 2025",
     reactions: {
@@ -17,23 +17,23 @@ const blogs = [
       {
         id: 101,
         user: "TravelFan22",
-        text: "I visited Koh Kradan last year and it was exactly as you described - paradise!",
+        text: "I visited Morocco last year and it was exactly as you described - paradise!",
         date: "May 26, 2025",
       },
       {
         id: 102,
         user: "BeachExplorer",
-        text: "Are there accommodations near these beaches or are they day-trip destinations?",
+        text: "Are there accommodations near these beaches or are they a day-trip destinations?",
         date: "May 27, 2025",
       }
     ]
   },
   {
     id: 2,
-    title: "The Ultimate Guide to European Train Travel",
+    title: "The Ultimate Guide to Morocco Train Travel",
     image: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dHJhaW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-    description: "Everything you need to know about navigating Europe by rail. From Eurail passes to scenic routes, plan your perfect train adventure.",
-    content: "Traveling through Europe by train is not just a means of transportation; it's an experience in itself. The extensive rail network connects major cities and small villages alike, offering travelers a chance to see the landscape change before their eyes...",
+    description: "Everything you need to know about navigating Morocco by Train. From North to South, plan your perfect train adventure.",
+    content: "Traveling through Morocco by train is not just a mean of transportation; it's an experience in itself. The extensive Train network connects major cities and small villages alike, offering travelers a chance to see the landscape change in one day",
     author: "Mark Davies",
     date: "May 22, 2025",
     reactions: {
@@ -45,8 +45,8 @@ const blogs = [
     comments: [
       {
         id: 201,
-        user: "EuropeExplorer",
-        text: "The Swiss scenic routes are absolutely worth the extra cost!",
+        user: "AfricaExplorer",
+        text: "The routes are absolutely worth the extra cost!",
         date: "May 23, 2025",
       },
       {
@@ -59,9 +59,9 @@ const blogs = [
   },
   {
     id: 3,
-    title: "Culinary Adventures: Street Food Around the World",
+    title: "Culinary Adventures: Street Food Around Morocco",
     image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    description: "From tacos in Mexico City to pad thai in Bangkok, discover the best street food destinations and must-try dishes in each location.",
+    description: "From bessara in Tanger City to boubouch in Marrakesh, discover the best street food destinations and must-try dishes in each location.",
     content: "Street food is the heart and soul of a city's culinary identity. It represents authentic local flavors, cooking techniques passed down through generations, and the vibrant culture of everyday life...",
     author: "Elena Rodriguez",
     date: "May 20, 2025",
@@ -75,7 +75,7 @@ const blogs = [
       {
         id: 301,
         user: "FoodieForever",
-        text: "The Thai mango sticky rice changed my life! Definitely a must-try.",
+        text: "The CousCous with the 7 vegetables changed my life! Definitely a must-try.",
         date: "May 21, 2025",
       },
       {
@@ -110,7 +110,7 @@ const blogs = [
       {
         id: 402,
         user: "GreenExplorer",
-        text: "Any recommendations for eco-friendly tour operators in Southeast Asia?",
+        text: "Any recommendations for eco-friendly tour operators in the South of Morocco?",
         date: "May 20, 2025",
       }
     ]
@@ -119,7 +119,7 @@ const blogs = [
     id: 5,
     title: "Solo Female Travel: Safety Tips and Amazing Destinations",
     image: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29sbyUyMHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    description: "Practical advice and inspiring destinations for women traveling alone. Empower yourself to explore the world with confidence.",
+    description: "Practical advice and inspiring destinations for women traveling alone. Empower yourself to explore Morocco with confidence.",
     content: "Solo travel as a woman can be one of the most rewarding and transformative experiences. It offers independence, confidence, and the freedom to design your perfect trip. However, it's also natural to have concerns about safety...",
     author: "Jessica Kim",
     date: "May 15, 2025",
@@ -139,7 +139,7 @@ const blogs = [
       {
         id: 502,
         user: "FirstTimeTraveler",
-        text: "Would you recommend Japan as a first solo destination?",
+        text: "Would you recommend Merzouga as a first solo destination?",
         date: "May 17, 2025",
       }
     ]
