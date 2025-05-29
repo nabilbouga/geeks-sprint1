@@ -10,6 +10,10 @@ import Footer from './components/sections/Footer';
 import MoroccoTravelBlog from './components/sections/UserReviews';
 import AllBlogs from './components/sections/AllBlogs';
 import BlogsPage from './pages/BlogsPage';
+import ContactPage from './pages/ContactPage';
+
+
+
 
 function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -26,6 +30,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/blogs" element={<BlogsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/" element={
           <div>
             <nav className="bg-blue-600 text-white py-4 px-6">
@@ -38,17 +43,17 @@ function App() {
               </div>
             </nav>
            <Navbar onLoginClick={handleLoginClick} />
-      <main className="pt-16">
+      <main className="pt-0">
         <HeroSection />
              <TopDestinations />
              <HowItWorks />
              <MoroccoTravelBlog />
              <Benefits />
              <Footer />
+        </main>
           </div>
         } />
       </Routes>
-      </main>
 
       {/* Login Modal rendered at the root level */}
       {isLoginOpen && (
