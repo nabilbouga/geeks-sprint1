@@ -27,7 +27,7 @@ function App() {
       <Routes>
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/" element={
-          <div>
+          <>
             <nav className="bg-blue-600 text-white py-4 px-6">
               <div className="container mx-auto flex justify-between items-center">
                 <div className="text-xl font-bold">Travel Explorer</div>
@@ -37,18 +37,18 @@ function App() {
                 </div>
               </div>
             </nav>
-           <Navbar onLoginClick={handleLoginClick} />
-      <main className="pt-16">
-        <HeroSection />
-             <TopDestinations />
-             <HowItWorks />
-             <MoroccoTravelBlog />
-             <Benefits />
-             <Footer />
-          </div>
+            <Navbar onLoginClick={handleLoginClick} />
+            <main className="pt-16">
+              <HeroSection />
+              <TopDestinations />
+              <HowItWorks />
+              <MoroccoTravelBlog />
+              <Benefits />
+              <Footer />
+            </main>
+          </>
         } />
       </Routes>
-      </main>
 
       {/* Login Modal rendered at the root level */}
       {isLoginOpen && (
