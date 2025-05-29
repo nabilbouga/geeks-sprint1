@@ -12,7 +12,9 @@ const Navbar = ({ onLoginClick, isAuthenticated, onLogout }) => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="text-xl font-bold text-indigo-600">
-              Travel Explorer
+            <a href="/">
+              <img src="./logo.png" alt="TripReview Logo" className="h-14 mb-1" />
+            </a>
             </Link>
           </div>
 
