@@ -1,7 +1,7 @@
 import React from 'react';
 import { Users, Star, MapPin, ChevronRight } from 'lucide-react';
 
-const HeroSection = () => {
+const HeroSection = ({ onLoginClick }) => {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-800 overflow-hidden">
       <div className="absolute inset-0 bg-black/20"></div>
@@ -22,12 +22,12 @@ const HeroSection = () => {
             Join millions of travelers sharing authentic reviews and discovering hidden gems around MOROCCO
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <button className="bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 transform transition-all duration-300 shadow-2xl hover:shadow-yellow-500/25">
-              Start Reviewing 
+            <button 
+              onClick={onLoginClick}
+              className="bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 transform transition-all duration-300 shadow-2xl hover:shadow-yellow-500/25"
+            >
+              Start Reviewing
               <ChevronRight className="inline ml-2 w-5 h-5" />
-            </button>
-            <button className="border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
-              Explore Reviews
             </button>
           </div>
           <div className="flex justify-center items-center gap-8 text-blue-100">
@@ -41,7 +41,7 @@ const HeroSection = () => {
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="w-5 h-5" />
-              <span>150+ Countries</span>
+              <span>150+ Cities</span>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 
 const fadeIn = {
@@ -92,7 +93,7 @@ const ContactPage = () => {
             viewport={{ once: true }}
             variants={fadeIn}
           >
-            {contactInfo.map(({  title, value }, index) => (
+            {contactInfo.map(({ Icon, title, value }, index) => (
               <motion.div
                 key={index}
                 className="flex items-start gap-4"
