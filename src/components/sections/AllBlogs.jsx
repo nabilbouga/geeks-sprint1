@@ -59,9 +59,9 @@ const AllBlogs = () => {
   };
 
   // Get total reaction count for a blog
-  const getTotalReactions = (blog) => {
+/*  const getTotalReactions = (blog) => {
     return Object.values(blog.reactions).reduce((total, count) => total + count, 0);
-  };
+  };*/
 
   return (
     <section className="py-16 bg-gray-50">

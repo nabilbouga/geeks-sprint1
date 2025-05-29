@@ -1,13 +1,71 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, X } from 'lucide-react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+// Create axios instance with base URL
+const api = axios.create({
+  baseURL: 'https://geeks-backend-production.up.railway.app/api', // Update this with your backend URL
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
 const Login = ({ onClose }) => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your authentication logic here
+    setError('');
+    setLoading(true);
+
+    try {
+      if (isLogin) {
+        // Login request
+        const response = await api.post('/auth/login', {
+          email: formData.email,
+          password: formData.password,
+        });
+        
+        // Store the token in localStorage
+        localStorage.setItem('token', response.data.token);
+        
+        onClose(); // Close the modal
+        navigate('/blogs'); // Navigate to blogs page
+      } else {
+        // Signup request
+        await api.post('/auth/register', {
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+        });
+        
+        // After successful registration, switch to login
+        setIsLogin(true);
+        setFormData({ name: '', email: '', password: '' });
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || 'An error occurred. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -24,15 +82,27 @@ const Login = ({ onClose }) => {
             <X className="h-6 w-6" />
           </button>
         </div>
+
+        {error && (
+          <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded relative" role="alert">
+            <span className="block sm:inline">{error}</span>
+          </div>
+        )}
+
         <p className="mt-2 text-center text-sm text-gray-600">
           {isLogin ? "Don't have an account? " : "Already have an account? "}
           <button
-            onClick={() => setIsLogin(!isLogin)}
+            onClick={() => {
+              setIsLogin(!isLogin);
+              setError('');
+              setFormData({ name: '', email: '', password: '' });
+            }}
             className="font-medium text-indigo-600 hover:text-indigo-500"
           >
             {isLogin ? 'Sign up' : 'Sign in'}
           </button>
         </p>
+
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
             {!isLogin && (
@@ -45,6 +115,8 @@ const Login = ({ onClose }) => {
                   name="name"
                   type="text"
                   required
+                  value={formData.name}
+                  onChange={handleChange}
                   className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 bg-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Full Name"
                 />
@@ -60,6 +132,8 @@ const Login = ({ onClose }) => {
                 type="email"
                 autoComplete="email"
                 required
+                value={formData.email}
+                onChange={handleChange}
                 className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 bg-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
               />
@@ -74,10 +148,12 @@ const Login = ({ onClose }) => {
                 type={showPassword ? "text" : "password"}
                 autoComplete="current-password"
                 required
+                value={formData.password}
+                onChange={handleChange}
                 className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 bg-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
               />
-               <button
+              <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
@@ -93,18 +169,6 @@ const Login = ({ onClose }) => {
 
           {isLogin && (
             <div className="flex items-center justify-between">
-              {/* <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded bg-white"
-                />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                  Remember me
-                </label>
-              </div> */}
-
               <div className="text-sm">
                 <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
                   Forgot your password?
@@ -116,9 +180,12 @@ const Login = ({ onClose }) => {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              disabled={loading}
+              className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${
+                loading ? 'bg-indigo-400' : 'bg-indigo-600 hover:bg-indigo-700'
+              } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}
             >
-              {isLogin ? 'Sign in' : 'Sign up'}
+              {loading ? 'Processing...' : (isLogin ? 'Sign in' : 'Sign up')}
             </button>
           </div>
         </form>
@@ -128,32 +195,7 @@ const Login = ({ onClose }) => {
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-300" />
             </div>
-            {/* <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-gray-50 text-gray-500">Or continue with</span>
-            </div> */}
           </div>
-
-          {/* <div className="mt-6 grid grid-cols-2 gap-3">
-            <button
-              type="button"
-              className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-            >
-              <span className="sr-only">Sign in with Google</span>
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/>
-              </svg>
-            </button>
-
-            <button
-              type="button"
-              className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-            >
-              <span className="sr-only">Sign in with Facebook</span>
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-            </button>
-          </div> */}
         </div>
       </div>
     </div>
