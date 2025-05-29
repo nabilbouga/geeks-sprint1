@@ -62,7 +62,7 @@ function AppContent() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/" element={
           <main className="pt-0">
-            <HeroSection />
+            <HeroSection onLoginClick={handleLoginClick} />
             <TopDestinations />
             <HowItWorks />
             <MoroccoTravelBlog />
