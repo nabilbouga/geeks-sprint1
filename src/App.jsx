@@ -29,20 +29,38 @@ function App() {
       <Navbar onLoginClick={handleLoginClick} />
 
       <Routes>
+        <Route path="/blogs" element={<BlogsPage />} />
+        <Route path="/" element={
+          <>
+
+            <Navbar onLoginClick={handleLoginClick} />
+            <main className="pt-16">
+              <HeroSection />
+              <TopDestinations />
+              <HowItWorks />
+              <MoroccoTravelBlog />
+              <Benefits />
+              <Footer />
+            </main>
+          </>
+        } />
+      </Routes>
+
+      <Routes>
         {/* Route for the Blogs page */}
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/About" element={<AboutPage />} />
 
         {/* Route for the Home page - render its content within a container that has top padding */}
         <Route path="/" element={
-          <main className="pt-16"> {/* Add padding to clear the fixed navbar */}
+          <main className="pt-0"> {/* Add padding to clear the fixed navbar */}
             <HeroSection />
             <TopDestinations />
             <HowItWorks />
             <MoroccoTravelBlog />
             <Benefits />
             <Footer />
-          </main>
+        </main>
         } />
         {/* Add other routes here as needed */}
       </Routes>
