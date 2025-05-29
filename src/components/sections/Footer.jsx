@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <img src="/logo.png" alt="TripReview Logo" className="h-20 mb-3" />
             <p className="text-blue-200">
-              Discover the world through authentic experiences
+              Discover Morocco through authentic experiences
             </p>
           </div>
 

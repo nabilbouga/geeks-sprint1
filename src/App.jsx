@@ -10,6 +10,7 @@ import Footer from './components/sections/Footer';
 import MoroccoTravelBlog from './components/sections/UserReviews';
 import AllBlogs from './components/sections/AllBlogs';
 import BlogsPage from './pages/BlogsPage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -24,33 +25,29 @@ function App() {
 
   return (
     <div className="App">
-      <Routes>
-        <Route path="/blogs" element={<BlogsPage />} />
-        <Route path="/" element={
-          <div>
-            <nav className="bg-blue-600 text-white py-4 px-6">
-              <div className="container mx-auto flex justify-between items-center">
-                <div className="text-xl font-bold">Travel Explorer</div>
-                <div className="space-x-6">
-                  <Link to="/" className="hover:text-blue-200 transition-colors">Home</Link>
-                  <Link to="/blogs" className="hover:text-blue-200 transition-colors">Blogs</Link>
-                </div>
-              </div>
-            </nav>
-           <Navbar onLoginClick={handleLoginClick} />
-      <main className="pt-16">
-        <HeroSection />
-             <TopDestinations />
-             <HowItWorks />
-             <MoroccoTravelBlog />
-             <Benefits />
-             <Footer />
-          </div>
-        } />
-      </Routes>
-      </main>
+      {/* Navbar is fixed and rendered here, outside of Routes, to appear on all pages */}
+      <Navbar onLoginClick={handleLoginClick} />
 
-      {/* Login Modal rendered at the root level */}
+      <Routes>
+        {/* Route for the Blogs page */}
+        <Route path="/blogs" element={<BlogsPage />} />
+        <Route path="/About" element={<AboutPage />} />
+
+        {/* Route for the Home page - render its content within a container that has top padding */}
+        <Route path="/" element={
+          <main className="pt-16"> {/* Add padding to clear the fixed navbar */}
+            <HeroSection />
+            <TopDestinations />
+            <HowItWorks />
+            <MoroccoTravelBlog />
+            <Benefits />
+            <Footer />
+          </main>
+        } />
+        {/* Add other routes here as needed */}
+      </Routes>
+
+      {/* Login Modal rendered at the root level to ensure proper stacking */}
       {isLoginOpen && (
         <div className="fixed inset-0 z-[999] overflow-y-auto">
           <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">

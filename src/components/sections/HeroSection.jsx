@@ -15,11 +15,11 @@ const HeroSection = () => {
           <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight ">
             TRIP REVIEW
             <span className="block bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-              See the world through others' eyes
+              See Morocco through others' eyes
             </span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-blue-100 leading-relaxed max-w-2xl mx-auto">
-            Join millions of travelers sharing authentic reviews and discovering hidden gems around the world
+            Join millions of travelers sharing authentic reviews and discovering hidden gems around MOROCCO
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <button className="bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 transform transition-all duration-300 shadow-2xl hover:shadow-yellow-500/25">

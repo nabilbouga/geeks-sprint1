@@ -82,26 +82,18 @@ const BlogsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
       {/* Navigation */}
-      <nav className="bg-blue-600 text-white py-4 px-6">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="text-xl font-bold">Travel Explorer</div>
-          <div className="space-x-6">
-            <Link to="/" className="hover:text-blue-200 transition-colors">Home</Link>
-            <Link to="/blogs" className="hover:text-blue-200 transition-colors font-medium">Blogs</Link>
-          </div>
-        </div>
-      </nav>
+
       
       {/* Hero Banner */}
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="text-5xl font-extrabold mb-4">Travel Blog</h1>
-          <p className="text-xl max-w-2xl mx-auto">Discover amazing destinations, travel tips, and experiences from around the world</p>
+          <p className="text-xl max-w-2xl mx-auto">Discover amazing destinations, travel tips, and experiences from around Morocco</p>
         </div>
       </div>
       
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 pt-16">
         {/* Create New Blog */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8 max-w-5xl mx-auto">
           <div className="flex justify-between items-center mb-4">

@@ -20,7 +20,7 @@ const TopDestinations = () => {
             Top Destinations
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Explore the world's most beloved destinations through the eyes of real travelers
+            Explore Morocco's most beloved destinations through the eyes of real travelers
           </p>
         </div>
         
