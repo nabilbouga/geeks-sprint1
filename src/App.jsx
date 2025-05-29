@@ -32,7 +32,7 @@ function App() {
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/" element={
-          <div>
+          <>
             <nav className="bg-blue-600 text-white py-4 px-6">
               <div className="container mx-auto flex justify-between items-center">
                 <div className="text-xl font-bold">Travel Explorer</div>
@@ -42,6 +42,7 @@ function App() {
                 </div>
               </div>
             </nav>
+<<<<<<< HEAD
            <Navbar onLoginClick={handleLoginClick} />
       <main className="pt-0">
         <HeroSection />
@@ -52,6 +53,18 @@ function App() {
              <Footer />
         </main>
           </div>
+=======
+            <Navbar onLoginClick={handleLoginClick} />
+            <main className="pt-16">
+              <HeroSection />
+              <TopDestinations />
+              <HowItWorks />
+              <MoroccoTravelBlog />
+              <Benefits />
+              <Footer />
+            </main>
+          </>
+>>>>>>> c226bf421a50d66fbbd4ea2086c3e5e6850380b9
         } />
       </Routes>
 
