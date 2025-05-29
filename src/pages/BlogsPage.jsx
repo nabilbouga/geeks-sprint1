@@ -1,13 +1,26 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import blogs from '../components/data/blogs';
+import { useAuth } from '../context/AuthContext';
 
 const BlogsPage = () => {
-  // State for tracking updated reactions and new comments
+  const { isAuthenticated, loading } = useAuth();
   const [blogPosts, setBlogPosts] = useState(blogs);
   const [newComment, setNewComment] = useState('');
   const [activeCommentId, setActiveCommentId] = useState(null);
   const [activeSorting, setActiveSorting] = useState('newest'); // newest, popular, comments
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600"></div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return <Navigate to="/" replace />;
+  }
 
   // Handle emoji reactions
   const handleReaction = (blogId, reactionType) => {

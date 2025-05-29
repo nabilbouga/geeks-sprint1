@@ -21,9 +21,11 @@ const Navbar = ({ onLoginClick, isAuthenticated, onLogout }) => {
             <Link to="/" className="text-gray-700 hover:text-indigo-600 transition-colors duration-200">
               Home
             </Link>
-            <Link to="/blogs" className="text-gray-700 hover:text-indigo-600 transition-colors duration-200">
-              Blogs
-            </Link>
+            {isAuthenticated && (
+              <Link to="/blogs" className="text-gray-700 hover:text-indigo-600 transition-colors duration-200">
+                Blogs
+              </Link>
+            )}
             <Link to="/about" className="text-gray-700 hover:text-indigo-600 transition-colors duration-200">
               About
             </Link>
@@ -70,11 +72,16 @@ const Navbar = ({ onLoginClick, isAuthenticated, onLogout }) => {
             <Link to="/" className="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors duration-200">
               Home
             </Link>
-            <Link to="/destinations" className="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors duration-200">
-              Destinations
-            </Link>
+            {isAuthenticated && (
+              <Link to="/blogs" className="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors duration-200">
+                Blogs
+              </Link>
+            )}
             <Link to="/about" className="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors duration-200">
               About
+            </Link>
+            <Link to="/contact" className="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors duration-200">
+              Contact
             </Link>
             {isAuthenticated ? (
               <button
